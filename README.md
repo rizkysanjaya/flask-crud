@@ -8,10 +8,10 @@ UI Template using [Material Dashboard 2](https://themewagon.github.io/material-d
 # Run the Flask application
 python app.py
 
-#Example API Requests
+# Example API Requests
 
 
-#Create a Book (POST):
+# Create a Book (POST):
 
 POST /create HTTP/1.1
 Host: localhost:5000
@@ -23,16 +23,16 @@ Content-Type: application/json
   "genre": "Fiction"
 }
 
-#Get List of Books (GET):
+# Get List of Books (GET):
 
 GET /book HTTP/1.1
 Host: localhost:5000
 
-E#ndpoints
+# Endpoints
 
 Here's an example:
 
-#POST /create
+# POST /create
 Create a new book record.
 
 Request:
@@ -49,10 +49,10 @@ Example request body:
   "author": "John Doe",
   "genre": "Fiction"
 }
-Response:
 
-Status code: 302 (Redirect)
-Redirects to /book on success.
+Response:
+## Status code: 302 (Redirect)
+R## edirects to /book on success.
 
 
 - [Flask](https://flask.palletsprojects.com/)
