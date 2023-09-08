@@ -25,8 +25,8 @@ python app.py
 
 # Get List of Books (GET):
 
-GET /book HTTP/1.1
-Host: localhost:5000
+- GET /book HTTP/1.1
+- Host: localhost:5000
 
 # Endpoints
 
@@ -52,14 +52,7 @@ Request:
 
 Response:
 - Status code: 302 (Redirect)
-- edirects to /book on success.
-
-
-- [Flask](https://flask.palletsprojects.com/)
-- [Pymysql](https://pypi.org/project/PyMySQL/)
-
-
-
+- Redirects to /book on success.
 
 
 
