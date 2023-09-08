@@ -6,18 +6,19 @@ UI Template using [Material Dashboard 2](https://themewagon.github.io/material-d
 <p align="center"><img src ="doc/doc.png?raw=true" height="565" /></p>
 
 # Run the Flask application
+```
 python app.py
-
+```
 # Example API Requests
-
-
-# Create a Book (POST):
-
+---
+Create a Book (POST):
+---
 - POST /create HTTP/1.1
 - Host: localhost:5000
 - Content-Type: application/json
 
-```{
+```
+{
   "title": "Sample Book",
   "author": "John Doe",
   "genre": "Fiction"
