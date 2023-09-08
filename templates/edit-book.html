@@ -188,19 +188,19 @@
 										<input
 											type="hidden"
 											class="form-control"
-											name="{{ book['id'] }}"
+											name="id"
 											title="{{ book['id'] }}"
-											value="{{ book['id'] }}"
+											value="{{ book[0] }}"
 										/>
 										<div class="col-md-6">
 											<div class="input-group input-group-outline my-3">
-												<label class="form-label">Title</label>
+												<label class="form-label">Book</label>
 												<input
 													type="text"
 													class="form-control"
-													name="{{ book['title'] }}"
+													name="title"
 													title="{{ book['title'] }}"
-													value="{{ book['title'] }}"
+													value="{{ book[1] }}"
 												/>
 											</div>
 										</div>
@@ -210,9 +210,9 @@
 												<input
 													type="text"
 													class="form-control"
-													name="{{ book['author'] }}"
+													name="author"
 													title="{{ book['author'] }}"
-													value="{{ book['author'] }}"
+													value="{{ book[2] }}"
 												/>
 											</div>
 										</div>
@@ -226,20 +226,28 @@
 													class="form-control"
 													name="genre"
 													title="{{ book['genre'] }}"
-													value="{{ book['genre'] }}"
+													value="{{ book[3] }}"
 												/>
 											</div>
 										</div>
 									</div>
 									<!-- submit button -->
 									<div class="row">
-										<div class="col-md-6">
+										<div class="col-md-4">
 											<button
 												type="submit"
 												class="btn bg-gradient-dark w-50 my-4 mb-2"
 											>
 												Update
 											</button>
+										</div>
+										<div class="col-md-4">
+											<a
+												class="btn btn-outline-info w-50 my-4 mb-2"
+												href="{{ url_for('book') }}"
+											>
+												Cancel
+											</a>
 										</div>
 									</div>
 								</form>

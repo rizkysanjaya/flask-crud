@@ -56,7 +56,7 @@ def edit(id):
         return redirect(url_for('book'))
 
     # If the request method is GET, retrieve the data of the book to be edited
-    cursor.execute("SELECT * FROM books WHERE id = %s", (id,))
+    cursor.execute("SELECT id, title, author, genre FROM books WHERE id = %s", (id,))
     book = cursor.fetchone()
     conn.close()
 
