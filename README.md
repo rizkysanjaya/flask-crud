@@ -13,9 +13,9 @@ python app.py
 
 # Create a Book (POST):
 
-POST /create HTTP/1.1
-Host: localhost:5000
-Content-Type: application/json
+- POST /create HTTP/1.1
+- Host: localhost:5000
+- Content-Type: application/json
 
 {
   "title": "Sample Book",
@@ -33,16 +33,16 @@ Host: localhost:5000
 Here's an example:
 
 # POST /create
-Create a new book record.
+- Create a new book record.
 
 Request:
 
-Method: POST
+- Method: POST
 
-URL: /create
+- URL: /create
 
-Request body format: JSON
-Example request body:
+# Request body format: JSON
+- Example request body:
 
 {
   "title": "Sample Book",
@@ -51,8 +51,8 @@ Example request body:
 }
 
 Response:
-## Status code: 302 (Redirect)
-R## edirects to /book on success.
+- Status code: 302 (Redirect)
+- edirects to /book on success.
 
 
 - [Flask](https://flask.palletsprojects.com/)
