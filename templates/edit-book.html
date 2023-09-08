@@ -178,9 +178,7 @@
 								<div
 									class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3"
 								>
-									<h6 class="text-white text-capitalize ps-3">
-										{{ book.genre }}
-									</h6>
+									<h6 class="text-white text-capitalize ps-3">Edit a Book</h6>
 								</div>
 								<!-- Button trigger modal -->
 							</div>
@@ -195,40 +193,40 @@
 											value="{{ book['id'] }}"
 										/>
 										<div class="col-md-6">
-											<div class="input-group input-group-outline my-3">
+											<div class="input-group-outline my-3">
 												<label class="form-label">Title</label>
 												<input
 													type="text"
 													class="form-control"
 													name="title"
-													title="{{ book.title }}"
-													value="{{ book.title }}"
+													title="{{ book['title'] }}"
+													value="{{ book['title'] }}"
 												/>
 											</div>
 										</div>
 										<div class="col-md-6">
-											<div class="input-group input-group-outline my-3">
+											<div class="input-group-outline my-3">
 												<label class="form-label">Author</label>
 												<input
 													type="text"
 													class="form-control"
 													name="author"
-													title="{{ book.author }}"
-													value="{{ book.author }}"
+													title="{{ book['author'] }}"
+													value="{{ book['author'] }}"
 												/>
 											</div>
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-md-6">
-											<div class="input-group input-group-outline my-3">
+											<div class="input-group-outline my-3">
 												<label class="form-label">Genre</label>
 												<input
 													type="text"
 													class="form-control"
 													name="genre"
-													title="{{ book.genre }}"
-													value="{{ book.genre }}"
+													title="{{ book['genre'] }}"
+													value="{{ book['genre'] }}"
 												/>
 											</div>
 										</div>

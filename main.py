@@ -33,7 +33,7 @@ def new_book():
     return render_template('add-book.html')
 
 #update book page and display data from coreesponding id
-@app.route('/edit/<int:id>', methods=['GET', 'POST'])
+@app.route('/edit/<string:id>', methods=['GET', 'POST'])
 def edit(id):
     conn = mysql.connect()
     cursor = conn.cursor()
@@ -57,11 +57,11 @@ def edit(id):
 
     # If the request method is GET, retrieve the data of the book to be edited
     cursor.execute("SELECT * FROM books WHERE id = %s", (id,))
-    books = cursor.fetchone()
+    book = cursor.fetchone()
     conn.close()
 
     if book:
-        return render_template('edit-book.html', book=books)
+        return render_template('edit-book.html', book=book)
     else:
         # flash('Book not found!', 'danger')
         return redirect(url_for('book'))
@@ -166,6 +166,3 @@ def showMessage(error=None):
         
 if __name__ == "__main__":
     app.run(debug=True)
-
-
-
