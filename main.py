@@ -57,11 +57,11 @@ def edit(id):
 
     # If the request method is GET, retrieve the data of the book to be edited
     cursor.execute("SELECT * FROM books WHERE id = %s", (id,))
-    book = cursor.fetchone()
+    books = cursor.fetchone()
     conn.close()
 
     if book:
-        return render_template('edit-book.html', book=book)
+        return render_template('edit-book.html', book=books)
     else:
         # flash('Book not found!', 'danger')
         return redirect(url_for('book'))
@@ -166,3 +166,6 @@ def showMessage(error=None):
         
 if __name__ == "__main__":
     app.run(debug=True)
+
+
+
