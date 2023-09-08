@@ -17,12 +17,12 @@ python app.py
 - Host: localhost:5000
 - Content-Type: application/json
 
-{
+```{
   "title": "Sample Book",
   "author": "John Doe",
   "genre": "Fiction"
 }
-
+```
 # Get List of Books (GET):
 
 - GET /book HTTP/1.1
@@ -43,13 +43,13 @@ Request:
 
 # Request body format: JSON
 - Example request body:
-
+```
 {
   "title": "Sample Book",
   "author": "John Doe",
   "genre": "Fiction"
 }
-
+```
 Response:
 - Status code: 302 (Redirect)
 - Redirects to /book on success.
