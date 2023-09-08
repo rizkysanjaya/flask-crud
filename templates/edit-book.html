@@ -1,3 +1,5 @@
+<pre>{{ book }}</pre>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -176,27 +178,42 @@
 								<div
 									class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3"
 								>
-									<h6 class="text-white text-capitalize ps-3">Add a Book</h6>
+									<h6 class="text-white text-capitalize ps-3">Edit a Book</h6>
 								</div>
 								<!-- Button trigger modal -->
 							</div>
 							<div class="card-body px-0 pb-2">
-								<form
-									class="card-body"
-									action="{{ url_for('add_book') }}"
-									method="POST"
-								>
+								<form class="card-body" method="POST">
 									<div class="row">
+										<input
+											type="hidden"
+											class="form-control"
+											name="id"
+											title="{{ book['id'] }}"
+											value="{{ book['id'] }}"
+										/>
 										<div class="col-md-6">
 											<div class="input-group input-group-outline my-3">
 												<label class="form-label">Title</label>
-												<input type="text" class="form-control" name="title" />
+												<input
+													type="text"
+													class="form-control"
+													name="title"
+													title="{{ book.title }}"
+													value="{{ book.title }}"
+												/>
 											</div>
 										</div>
 										<div class="col-md-6">
 											<div class="input-group input-group-outline my-3">
 												<label class="form-label">Author</label>
-												<input type="text" class="form-control" name="author" />
+												<input
+													type="text"
+													class="form-control"
+													name="author"
+													title="{{ book.author }}"
+													value="{{ book.author }}"
+												/>
 											</div>
 										</div>
 									</div>
@@ -204,7 +221,13 @@
 										<div class="col-md-6">
 											<div class="input-group input-group-outline my-3">
 												<label class="form-label">Genre</label>
-												<input type="text" class="form-control" name="genre" />
+												<input
+													type="text"
+													class="form-control"
+													name="genre"
+													title="{{ book.genre }}"
+													value="{{ book.genre }}"
+												/>
 											</div>
 										</div>
 									</div>
@@ -215,7 +238,7 @@
 												type="submit"
 												class="btn bg-gradient-dark w-50 my-4 mb-2"
 											>
-												Add Book
+												Update
 											</button>
 										</div>
 									</div>

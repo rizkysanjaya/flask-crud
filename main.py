@@ -32,8 +32,63 @@ def add_book():
 def new_book():
     return render_template('add-book.html')
 
+#update book page and display data from coreesponding id
+@app.route('/edit/<int:id>', methods=['GET', 'POST'])
+def edit(id):
+    conn = mysql.connect()
+    cursor = conn.cursor()
 
-     
+    if request.method == 'POST':
+        # Retrieve the form data
+        _title = request.form['title']
+        _author = request.form['author']
+        _genre = request.form['genre']
+
+        # Update the record in the database
+        cursor.execute(
+            "UPDATE books SET title=%s, author=%s, genre=%s WHERE id=%s",
+            (_title, _author, _genre, id)
+        )
+        conn.commit()
+
+        # flash('Book updated successfully!', 'success')
+        conn.close()
+        return redirect(url_for('book'))
+
+    # If the request method is GET, retrieve the data of the book to be edited
+    cursor.execute("SELECT * FROM books WHERE id = %s", (id,))
+    book = cursor.fetchone()
+    conn.close()
+
+    if book:
+        return render_template('edit-book.html', book=book)
+    else:
+        # flash('Book not found!', 'danger')
+        return redirect(url_for('book'))
+   
+# #update function
+# @app.route('/update', methods=['POST'])
+# def update():
+#     conn = mysql.connect()
+#     cursor = conn.cursor()
+
+#     if request.method == 'POST':
+#         # Retrieve the form data
+#         _title = request.form['title']
+#         _author = request.form['author']
+#         _genre = request.form['genre']
+
+#         # Update the record in the database
+#         cursor.execute(
+#             "UPDATE books SET title=%s, author=%s, genre=%s WHERE id=%s",
+#             (_title, _author, _genre, id)
+#         )
+#         conn.commit()
+
+#         flash('Book updated successfully!', 'success')
+#         conn.close()
+#         return redirect(url_for('book'))
+    
 @app.route('/book')
 def book():
     try:
@@ -65,44 +120,35 @@ def book_details(id):
         cursor.close() 
         conn.close() 
 
-@app.route('/update', methods=['PUT'])
-def update_book():
-    try:
-        _json = request.json
-        _id = _json['id']
-        _title = _json['title']
-        _author = _json['author']
-        _genre = _json['genre']
-        if _title and _author and _genre and request.method == 'PUT':			
-            sqlQuery = "UPDATE books SET title=%s, author=%s,genre=%s WHERE id=%s"
-            bindData = (_title, _author, _genre, _id)            
-            conn = mysql.connect()
-            cursor = conn.cursor()
-            cursor.execute(sqlQuery, bindData)
-            conn.commit()
-            respone = jsonify('Book updated successfully!')
-            respone.status_code = 200
-            return respone
-        else:
-            return showMessage()
-    except Exception as e:
-        print(e)
-    finally:
-        cursor.close() 
-        conn.close() 
+# @app.route('/update', methods=['PUT'])
+# def update_book():
+#     try:
+#         _id = request.form['id']
+#         _title = request.form['title']
+#         _author = request.form['author']
+#         _genre = request.form['genre']
 
-@app.route('/delete/<int:id>', methods=['DELETE'])
+#         conn = mysql.connect()
+#         cursor = conn.cursor(pymysql.cursors.DictCursor)
+#         cursor.execute("UPDATE books SET title=%s, author=%s, genre=%s WHERE id=%s", (_title, _author, _genre, id))
+#         conn.commit()
+#         return redirect(url_for('book'))
+#     except Exception as e:
+#         print(e)
+#     finally:
+#         cursor.close() 
+#         conn.close() 
+
+@app.route('/delete/<int:id>', methods=['GET'])
 def delete_book(id):
 	try:
 		conn = mysql.connect()
 		cursor = conn.cursor()
 		cursor.execute("DELETE FROM books WHERE id =%s", (id,))
 		conn.commit()
-		respone = jsonify('Book deleted successfully!')
-		respone.status_code = 200
-		return respone
+		return redirect(url_for('book'))
 	except Exception as e:
-		print(e)
+		return redirect(url_for('book'))
 	finally:
 		cursor.close() 
 		conn.close()
