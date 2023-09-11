@@ -24,50 +24,30 @@ python main.py
 
 ## Create a Book (POST):
 
-- POST /create HTTP/1.1
-- Host: localhost:5000
-- Content-Type: application/json
+(Add new book page)
 
-```
-{
-  "title": "Sample Book",
-  "author": "John Doe",
-  "genre": "Fiction"
-}
-```
+- Host: localhost:5000/new_book
 
-# Get List of Books (GET):
+## Get List of Books (GET):
 
-- GET /book HTTP/1.1
-- Host: localhost:5000
+(View All data)
 
-# Endpoints
+- Host: localhost:5000/book
+
+## Endpoints
 
 Here's an example:
 
-# POST /create
+## POST
 
-- Create a new book record.
+- localhost:5000/create (insert data)
 
-Request:
+## GET
 
-- Method: POST
+- localhost:5000/book (view all data)
 
-- URL: /create
+- localhost:5000/book/<id> (view data by id)
 
-# Request body format: JSON
+- localhost:5000/edit/<id> (edit data by id)
 
-- Example request body:
-
-```
-{
-  "title": "Sample Book",
-  "author": "John Doe",
-  "genre": "Fiction"
-}
-```
-
-Response:
-
-- Status code: 302 (Redirect)
-- Redirects to /book on success.
+- localhost:5000/delete/<id> (delete data by id)
