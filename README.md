@@ -50,4 +50,6 @@ Here's an example:
 
 - localhost:5000/edit/<id> (edit data by id)
 
+## DELETE
+
 - localhost:5000/delete/<id> (delete data by id)
