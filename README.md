@@ -6,6 +6,12 @@ UI Template using [Material Dashboard 2](https://themewagon.github.io/material-d
 
 <p align="center"><img src ="doc/doc.png?raw=true" height="565" /></p>
 
+# Install required libraries
+
+```
+pip install -r requirements.txt
+```
+
 # Run the Flask application
 
 ```
