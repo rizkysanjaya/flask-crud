@@ -14,15 +14,11 @@ db_params = {
     'password': 'Dev123'
 }
 
-
-
 # View all books 
 
 @app.route('/')
 def book():
-    
-        # conn = mysql.connect()
-        # cursor = conn.cursor(pymysql.cursors.DictCursor)
+
     conn = psycopg2.connect(**db_params)
     cursor = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
     cursor.execute("SELECT * FROM books")
@@ -43,8 +39,6 @@ def add_book():
         _author = request.form['author']
         _genre = request.form['genre']
 
-        # conn = mysql.connect()
-        # cursor = conn.cursor(pymysql.cursors.DictCursor)
         conn = psycopg2.connect(**db_params)
         cursor = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
         cursor.execute("INSERT INTO books(title, author, genre) VALUES(%s, %s, %s)", (_title, _author, _genre))
@@ -75,8 +69,6 @@ def edit(id):
         )
         conn.commit()
 
-        # flash('Book updated successfully!', 'success')
-        # conn.close()
         return redirect(url_for('book'))
 
     # If the request method is GET, retrieve the data of the book to be edited
@@ -87,10 +79,8 @@ def edit(id):
     if book:
         return render_template('edit-book.html', book=book)
     else:
-        # flash('Book not found!', 'danger')
         return redirect(url_for('book'))
     
-
 # Delete book function
 @app.route('/delete/<string:id>', methods=['GET'])
 def delete_book(id):
