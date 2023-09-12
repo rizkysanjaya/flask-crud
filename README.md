@@ -54,13 +54,13 @@ python main.py
 
 (Add new book page)
 
-- Host: localhost:5000/new_book
+- Host: http://localhost:5000/new_book
 
 ## Get List of Books (GET):
 
 (View All data)
 
-- Host: localhost:5000/book
+- Host: http://localhost:5000/
 
 ## Endpoints
 
@@ -68,16 +68,16 @@ Here's an example:
 
 ## POST
 
-- localhost:5000/create (insert data)
+- http://localhost:5000/create (insert data)
 
 ## GET
 
-- localhost:5000/book (view all data)
+- http://localhost:5000/ (view all data)
 
-- localhost:5000/book/<id> (view data by id)
+- http://localhost:5000/book/<id> (view data by id)
 
-- localhost:5000/edit/<id> (edit data by id)
+- http://localhost:5000/edit/<id> (edit data by id)
 
 ## DELETE
 
-- localhost:5000/delete/<id> (delete data by id)
+- http://localhost:5000/delete/<id> (delete data by id)
